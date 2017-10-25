@@ -34,3 +34,9 @@ dobj <- runDeMAND(dobj, fgIndex=caseIndex, bgIndex=controlIndex)
 printDeMAND(dobj)
 
 
+###################################################
+### code chunk number 6: DeMAND.Rnw:99-100
+###################################################
+sessionInfo()
+
+

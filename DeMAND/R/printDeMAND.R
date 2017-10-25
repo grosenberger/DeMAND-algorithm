@@ -10,15 +10,18 @@
 #' printDeMAND(dobj)
 #' @export
 printDeMAND <- function(x) {
-        cat("\nAn object of class demand\n\n")
-        cat("Slot exp:\n")
-        cat("\tExpression data of", nrow(x@exp), "features by", ncol(x@exp), "samples\n\n")
-        cat("Slot anno:\n")
-        cat("\tAnnotation of", nrow(x@anno), "probes and", length(unique(x@anno[,2])), "genes\n\n")
-        cat("Slot network:\n")
-        cat("\tInteractome with", length(unique(x@network)), "nodes,", nrow(x@anno), "edges\n\n")
-        cat("Slot moa (head):\n")
-        if (length(x@moa)>0) print(head(x@moa))
-        else cat("\tEmpty\n\n")
-        }
+        message("An object of class demand")
+        message("Slot exp:")
+        message("\tExpression data of ", nrow(x@exp), " features by ", ncol(x@exp), " samples")
+        message("Slot anno:")
+        message("\tAnnotation of ", nrow(x@anno), " probes and ", length(unique(x@anno[,2])), " genes")
+        message("Slot network:")
+        message("\tInteractome with ", length(unique(x@network)), " nodes, ", nrow(x@anno), " edges")
+        message("Slot moa (head):")
+        if (length(x@moa)>0) print(head(x@moa), row.names=FALSE)
+        else message("\tEmpty")
+        message("Slot KLD (head):")
+        if (dim(x@KLD)[1]>0) print(head(x@KLD), row.names=FALSE) 
+        else message("\tEmpty")
+}
 
